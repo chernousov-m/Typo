@@ -86,5 +86,16 @@ extension Namespace where Tag == Global {
 }
 ```
 
+# Getting keys
+In case you need to get keys for your properties (e.g. your storage has some kind of observing), you can call the StorageProxy to get KeyKeeper object and use it the same way you use proxy to get keys for the properties insted of values
+```swift
+let proxy = StorageProxy(
+  namespaceTag: Global.self,
+  storage: UserDefaults.standard
+)
+
+print(proxy().nestedNS.stringProperty) // "nestedNS/stringProperty"
+```
+
 # Contribute
 Feel free to open an issue or pull-request
